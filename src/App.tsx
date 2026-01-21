@@ -63,16 +63,19 @@ export const App = () => {
 
   function handleFormSubmit(event: React.FormEvent) {
     event.preventDefault();
+    let hasError = false;
 
     if (!newTitle) {
       setTitleError('Please enter a title');
-
-      return;
+      hasError = true;
     }
 
     if (!selectedUser) {
       setUserError('Please choose a user');
+      hasError = true;
+    }
 
+    if (hasError) {
       return;
     }
 

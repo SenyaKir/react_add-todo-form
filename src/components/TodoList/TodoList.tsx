@@ -5,6 +5,10 @@ type Props = {
   todos: Todo[];
 };
 
-export const TodoList = ({ todos }: Props) => {
-  return <TodoInfo todos={todos} />;
-};
+export const TodoList = ({ todos }: Props) => (
+  <section className="TodoList">
+    {todos.map(todo => (
+      <TodoInfo todo={todo} key={todo.id} />
+    ))}
+  </section>
+);
